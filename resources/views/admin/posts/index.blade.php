@@ -1,7 +1,7 @@
 @extends('layouts.app');
 
 @section('content')
-<a href="{{ route('admin.posts.create') }}">Create New Post</a>
+    <a href="{{ route('admin.posts.create') }}">Create New Post</a>
     <table class="table">
         <thead>
             <tr>
@@ -25,9 +25,14 @@
                         <a href="{{ route('admin.posts.edit', $elem['id']) }}">
                             Edit
                         </a>
-                        <a href="{{ route('admin.posts.destroy', $elem['id']) }}">
-                            Destroy
-                        </a>
+                        <form method="POST" action="{{ route('admin.posts.destroy', $elem['id']) }}">
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit">
+                                Destroy
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
