@@ -78,7 +78,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $elem = Post::findOrFail($id);
+
+        return view('admin.posts.edit', compact('elem'));
     }
 
     /**
@@ -91,6 +93,12 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->all();
+        $elem = Post::findOrFail($id);
+
+        $elem->update($data);
+
+        return redirect()->route('admin.posts.show', $elem['id']);
     }
 
     /**

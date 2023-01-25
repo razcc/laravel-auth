@@ -21,6 +21,14 @@
                     </td>
                     <td>{{ $elem['content'] }}</td>
                     <td>{{ $elem['likes'] }}</td>
+                    <td>
+                        <a href="{{ route('admin.posts.edit', $elem['id']) }}">
+                            Edit
+                        </a>
+                        <a href="{{ route('admin.posts.destroy', $elem['id']) }}">
+                            Destroy
+                        </a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
