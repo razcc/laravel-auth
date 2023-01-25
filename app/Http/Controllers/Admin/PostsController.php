@@ -52,6 +52,9 @@ class PostsController extends Controller
     public function show($id)
     {
         //
+        $elem = Post::findOrFail($id);
+
+        return view('admin.posts.show', compact('elem'));
     }
 
     /**

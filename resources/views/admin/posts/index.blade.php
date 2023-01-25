@@ -8,6 +8,7 @@
                 <th scope="col">Ttitle</th>
                 <th scope="col">Content</th>
                 <th scope="col">Likes</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -15,7 +16,7 @@
                 <tr>
                     <th>{{ $elem['id'] }}</th>
                     <td>
-                        <a href="">{{ $elem['title'] }}</a>
+                        <a href="{{ route('admin.posts.show', $elem['id']) }}">{{ $elem['title'] }}</a>
                     </td>
                     <td>{{ $elem['content'] }}</td>
                     <td>{{ $elem['likes'] }}</td>
