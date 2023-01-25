@@ -44,6 +44,12 @@ class PostsController extends Controller
     {
         //
         $data = $request->all();
+
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
         $newPost = new Post();
         $newPost->fill($data);
         $newPost->save();
