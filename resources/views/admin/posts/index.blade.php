@@ -4,20 +4,25 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">title</th>
-                <th scope="col">content</th>
-                <th scope="col">likes</th>
+                <th scope="col">Id</th>
+                <th scope="col">Ttitle</th>
+                <th scope="col">Content</th>
+                <th scope="col">Likes</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th>{{ $elem['id']  }}</th>
-                <td>{{ $elem['title']  }}</td>
-                <td>{{ $elem['content']  }}</td>
-                <td>{{ $elem['likes']  }}</td>
-            </tr>
-            
+            @foreach ($var as $elem)
+                <tr>
+                    <th>{{ $elem['id'] }}</th>
+                    <td>
+                        <a href="">{{ $elem['title'] }}</a>
+                    </td>
+                    <td>{{ $elem['content'] }}</td>
+                    <td>{{ $elem['likes'] }}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
+
+    {{ $var->links() }}
 @endsection
